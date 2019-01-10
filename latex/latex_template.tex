@@ -1,0 +1,169 @@
+% latex_template.tex
+
+% This template creates an article with 12pt font
+\documentclass[12pt]{article}
+%\usepackage[margin=1in]{geometry}
+%\newgeometry{left=.25in,right=.25in,top=.25in,bottom=.25in}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{outlines}
+\usepackage{enumitem}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage[section]{placeins}
+\usepackage{multirow}
+\usepackage{csquotes}
+\usepackage{placeins}
+\usepackage{subfloat}
+\usepackage{chngcntr}
+\usepackage{natbib}
+\usepackage{arydshln}
+\usepackage{bbm} % to get \mathbbm{1} command for the indicator function
+\newcommand\cites[1]{\citeauthor{#1}'s\ (\citeyear{#1})}
+%\usepackage{lineno}
+%\linenumbers
+%\usepackage[font=small,skip=-8pt]{caption}
+\usepackage[font=small]{caption}
+\usepackage[top=1in,bottom=1in]{geometry}
+\newcommand{\scalesize}{.4} 
+\newcommand{\scalesz}{.5} 
+
+%\input{mbc_newcommands.tex}
+
+%%%%%%%%%%
+%%%%%%%%%%
+%%%%%%%%%%
+\begin{document}
+
+%\vspace{-1.5in}
+% The \vspace{-.5in} command moves the title .5 inches higher
+% than where it would normally be.
+\title{\vspace{-.5in}\LaTeX\ Template}
+\date{\today}
+\author{Eric Hardy}
+\maketitle
+\begin{abstract}
+	This template contains code examples commonly used in academic papers.  
+\end{abstract}
+
+\section{Motivation}\label{sec:motivation}
+Microsoft Word is sometimes referred to as a ``WYSIWYG'' editor: ``What You See Is What You Get''. In contrast, \LaTeX is a markup language.  A LaTeX document begins as a plain text file, usually with a \texttt{.tex} file extension, in which users type commands to specify the layout and style of the document.  This text file is later compiled into a \texttt{.pdf} file which contains the formatted document.  
+
+For example, write in \emph{italics} using \texttt{\char`\\ emph\{italics\}}, in \textbf{bold} using \texttt{\char`\\ textbf\{bold\}}, and in \texttt{monospaced} font using \texttt{\char`\\ texttt\{monospaced\}}.  
+
+A markup language requires the user to learn some new commands to produce their desired formatting, but simultaneously gives the user a greater degree of control over the final document.  
+
+
+\section{Math and Aligned Equations}\label{sec:math}
+LaTeX excels at typesetting math.  Equations can be placed inline $y_t = A_tk_t^\alpha h_t^{1-\alpha}$, or as a standalone equation
+A single equation 
+\begin{equation}\label{eq:singleeqn}
+	1 = a
+\end{equation}
+
+A matrix
+\begin{equation}
+	A = 
+\begin{bmatrix}
+	a & b \\
+	c & d
+\end{bmatrix}
+\end{equation}
+Cases, and plain text in math mode.  Spacing in math mode can be added with \texttt{\char`\\ }.  
+\begin{equation}\label{eq:cases}
+	B = 
+	\begin{cases}
+		b_1 \ \ \text{if} \ \ \alpha > 0 \\
+		b_2 \ \ \text{if} \ \ \alpha \leq 0 \\
+	\end{cases}
+\end{equation}
+% \underbrace{}_{}
+% \left[\right]
+% //\begin{bmatrix}
+% bold in math mode \usepackage{amsmath}; \usepackage{bm} $\boldsymbol{K^b}$
+
+
+% \subsection{}\label{ssec:}
+% \subsubsection{}\label{sssec:}
+% \footnote{}
+
+to see a list of greek letters and math symbols: \url{http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html}
+A single un-numbered equation
+\begin{equation*}
+	1 = b 
+\end{equation*}
+A single equation on multiple lines
+\begin{equation}\begin{split}\label{eq:spliteqn}
+	a &= b \\
+	  &+ c
+\end{split}\end{equation}
+
+Multiple aligned equations
+\begin{align}
+	1 &= a + b \\
+	2 &= a - b
+\end{align}
+the \texttt{\char`\\end\{align\}} command must come directly after the last equation in the \texttt{align} environment with no empty lines between them.  
+
+
+
+	\section{Outlines}
+Create an outline
+\begin{outline}
+\itemsep0em
+	\1 Stuff
+		\2 Note about Stuff
+	\1 Other Stuff
+\end{outline}
+or an enumerated outline
+\begin{outline}[enumerate]
+	\1 Stuff
+		\2 Note about Stuff
+	\1 other Stuff
+\end{outline}
+
+\section{Tables}
+
+
+\iffalse
+\begin{subtables}
+\input{raw/t1a_040718.tex}
+\input{raw/t1b_040718.tex}
+\end{subtables}
+
+\begin{subtables}
+\input{raw/t2a_040718.tex}
+\input{raw/t2b_040718.tex}
+\end{subtables}
+\fi
+
+\section{Figures}
+%\clearpage
+
+\bibliographystyle{chicago}
+\bibliography{mcp_bibliography.bib}
+
+
+\clearpage
+\appendix 
+\counterwithin{table}{section}
+\section{Appendix Section}\label{sec:appendixsection}
+
+\section{Additional Appendix Section}\label{sec:additionalappendixsection}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%\nopagebreak
+%\newgeometry{left=.3in,right=.3in,top=.3in,bottom=1in}
+%\restoregeometry
+%\nopagebreak
+
+
